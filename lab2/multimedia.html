@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisboa - Multimédia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .poema p:nth-child(odd) {
+            color: darkblue;
+            font-style: italic;
+        }
+
+        .poema p:nth-child(even) {
+            color: darkred;
+            font-weight: bold;
+        }
+
+        .poema {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #555;
+            background: #f9f9f9;
+        }
+
+        .fotografias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .fotografias img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        iframe {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A minha Cidade: Lisboa</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="local.html">Localização</a>
+            <a href="multimedia.html">Multimédia</a>
+            <a href="info.html">Informação</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Multimédia</h2>
+        <p>Nesta página encontra conteúdos multimédia.</p>
+
+        <!-- Âncoras -->
+        <p>
+            <a href="#fotografias">Fotografias</a> |
+            <a href="#video">Vídeo</a> |
+            <a href="#poesia">Poesia</a>
+        </p>
+
+        <section id="fotografias">
+            <h3>Fotografias</h3>
+            <div class="fotografias">
+                <img src="images/1.jpg" alt="Vista cidade">
+                <img src="images/transferir.jpg" alt="Elétrico">
+                <img src="images/transferir (1).jpg" alt="Rua Augusta">
+                <img src="images/transferir (2).jpg" alt="Castelo">
+                <img src="images/transferir (3).jpg" alt="Tejo">
+                <img src="images/transferir (4).jpg" alt="Praça Comércio">
+                <img src="images/transferir (5).jpg" alt="Baixa">
+                <img src="images/transferir (6).jpg" alt="Santos Populares">
+            </div>
+        </section>
+
+        <section id="video">
+            <h3>Vídeo</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z-eOaagvD8E?si=9BRTaAs6FIAWdQKQ"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </section>
+
+        <section id="poesia">
+            <h3>Poesia</h3>
+            <div class="poema">
+                <p>Lisboa, cidade de luz e cor,</p>
+                <p>entre colinas banhadas de sol,</p>
+                <p>o Tejo espelha o teu esplendor,</p>
+                <p>e o vento leva histórias ao farol.</p>
+                <p>Nas vielas ecoa o fado sentido,</p>
+                <p>nas praças vive a multidão,</p>
+                <p>Lisboa, sonho sempre florido,</p>
+                <p>és saudade e eterna paixão.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>DIW 2025</p>
+    </footer>
+</body>
+</html>
