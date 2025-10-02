@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <title>Primeira Página</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Landing Page</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header>
-  <h1>Primeira Página Web!</h1>
-</header>
-
-<main>
-  <p>Eis a minha primeira página Web!</p>
-  <p>
-    Na Unidade Curricular de 
-    <a href="https://moodle.ensinolusofona.pt/course/view.php?id=11232" target="_blank">
-      Desenvolvimento de Interfaces Web
-    </a>
-    abordaremos as seguintes tecnologias Web &#127760;:
-  </p>
-  <ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>React e Next.js</li>
-  </ul>
-  <p>Iremos criar soluções criativas!</p>
-  <nav>
+  <!-- Header -->
+  <header>
+    <h1>Minha Página</h1>
+    <div class="hamburguer" onclick="toggleMenu()">&#9776;</div> <!-- Ícone do menu de hambúrguer -->
+    <nav id="navMenu">
       <ul>
-         <li><a href="lab1/index.html">Lab1</a></li>
-         <li><a href="lab2/index.html">Lab2</a></li>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#disciplinas">Disciplinas</a></li>
       </ul>
-  <img src="images/diw.svg" alt="Desenvolvimento de Interfaces Web" style ="width:300px;">
-</main>
+    </nav>
+  </header>
 
-<footer>
-  <p>Universidade Lusófona © 2025</p>
-</footer>
+  <!-- Secção Hero Image -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <h2>Bem-vindo à minha página</h2>
+      <p>Explorando o mundo do Desenvolvimento Web!</p>
+      <a href="#projetos" class="cta-button">Veja meus projetos</a>
+    </div>
+  </section>
+
+  <!-- Secção Projetos -->
+  <section id="projetos" class="projetos-section">
+    <h2>Meus Labs</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3><a href="lab1/index.html">Lab 1</a></h3>
+        <p>Intrudução 1</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="lab2/index.html">Lab 2</a></h3>
+        <p>Intrudução 2</p>
+      </div>
+      <div class="project-card">
+        <h3><a href="lab3/index.html">Lab 3</a></h3>
+        <p>Intrudução 2 com flex,media e grid</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secção Disciplina -->
+  <section id="disciplinas" class="disciplinas-section">
+    <h2>Sobre a Disciplina</h2>
+    <p>Esta Unidade Curricular fornece formação completa em desenvolvimento front-end, abordando HTML, CSS, JavaScript, React e Next.js. São integradas práticas profissionais, incluindo Git Flow, GitHub, Codespaces, GitHub Pages e Vercel, permitindo que os alunos adquiram competências em ambientes colaborativos e de produção. A UC visa desenvolver tanto a capacidade técnica como a criatividade, incentivando a criação de aplicações eficientes, funcionais e com boa experiência de utilizador. Esta formação prepara os alunos para enfrentar desafios reais em projetos empresariais, promovendo a utilização de ferramentas e metodologias modernas essenciais para qualquer profissional da área de informática.</p>
+  </section>
+
+  <footer id="footer">
+    <p>Universidade Lusófona © 2025</p>
+  </footer>
+
+  <script>
+    // Função para alternar a visibilidade do menu
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('show');
+    }
+  </script>
 
 </body>
 </html>

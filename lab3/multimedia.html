@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisboa - Multimédia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .poema p:nth-child(odd) {
+            color: darkblue;
+            font-style: italic;
+        }
+
+        .poema p:nth-child(even) {
+            color: darkred;
+            font-weight: bold;
+        }
+
+        .poema {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #555;
+            background: #f9f9f9;
+        }
+
+        /* Fotografias */
+        .fotografias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .fotografias img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            transition: transform 0.3s ease;  /* Transição suave ao passar o mouse */
+        }
+
+        .fotografias img:hover {
+            transform: scale(1.1);
+        }
+
+        iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Seções */
+        section {
+            padding: 20px;
+            height: 100vh; /* Ocupa a altura total da tela */
+        }
+
+        #fotografias {
+            background-color: #e0f7fa; /* Cor de fundo suave para fotografias */
+        }
+
+        #video {
+            background-color: #fff9c4; /* Cor de fundo suave para o vídeo */
+        }
+
+        #poesia {
+            background-color: #f8bbd0; /* Cor de fundo suave para poesia */
+        }
+
+        /* Nova seção de imagem com frase */
+        #imagem-emblemática {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://pixabay.com/get/52e7d4454954a914f1f3a7d7f12f353a5e3b4e05e6b213493c2d7db7f2e95e0e_1280.jpg'); /* Imagem de exemplo */
+            background-size: cover;
+            background-position: center;
+        }
+
+        #imagem-emblemática .frase {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 5vw; /* Tamanho de texto responsivo */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            transition: font-size 0.5s ease;  /* Transição suave no tamanho do texto */
+        }
+
+        /* Tamanho de fonte responsivo para o título */
+        h1 {
+            
+            font-size: 3rem; /* Exemplo com tamanho fixo */
+            transition: font-size 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A minha Cidade: Lisboa</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="local.html">Localização</a>
+            <a href="multimedia.html">Multimédia</a>
+            <a href="info.html">Informação</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Multimédia</h2>
+        <p>Nesta página encontra conteúdos multimédia.</p>
+
+        <!-- Âncoras -->
+        <p>
+            <a href="#fotografias">Fotografias</a> |
+            <a href="#video">Vídeo</a> |
+            <a href="#poesia">Poesia</a> |
+            <a href="#imagem-emblemática">Imagem Emblemática</a>
+        </p>
+
+        <!-- Seção de Fotografias -->
+        <section id="fotografias">
+            <h3>Fotografias</h3>
+            <div class="fotografias">
+                <img src="images/1.jpg" alt="Vista cidade">
+                <img src="images/transferir.jpg" alt="Elétrico">
+                <img src="images/transferir (1).jpg" alt="Rua Augusta">
+                <img src="images/transferir (2).jpg" alt="Castelo">
+                <img src="images/transferir (3).jpg" alt="Tejo">
+                <img src="images/transferir (4).jpg" alt="Praça Comércio">
+                <img src="images/transferir (5).jpg" alt="Baixa">
+                <img src="images/transferir (6).jpg" alt="Santos Populares">
+            </div>
+        </section>
+
+        <!-- Seção de Vídeo -->
+        <section id="video">
+            <h3>Vídeo</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z-eOaagvD8E?si=9BRTaAs6FIAWdQKQ"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            </iframe>
+        </section>
+
+        <!-- Seção de Poesia -->
+        <section id="poesia">
+            <h3>Poesia</h3>
+            <div class="poema">
+                <p>Lisboa, cidade de luz e cor,</p>
+                <p>entre colinas banhadas de sol,</p>
+                <p>o Tejo espelha o teu esplendor,</p>
+                <p>e o vento leva histórias ao farol.</p>
+                <p>Nas vielas ecoa o fado sentido,</p>
+                <p>nas praças vive a multidão,</p>
+                <p>Lisboa, sonho sempre florido,</p>
+                <p>és saudade e eterna paixão.</p>
+            </div>
+        </section>
+
+        <!-- Nova seção com imagem emblemática e frase -->
+        <section id="imagem-emblemática">
+            <div class="frase">
+                <p>"Lisboa, a cidade que nunca dorme!"</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>DIW 2025</p>
+    </footer>
+</body>
+</html>

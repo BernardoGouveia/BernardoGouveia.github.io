@@ -1,3 +1,210 @@
-body {
-    background-color: #A9CC1F;
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: whitesmoke;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; /* DISTRIBUI OS BOTÕES COM ESPAÇAMENTO ENTRE ELES */
+  gap: 10px;
+  width: 100%; /* Faz com que o nav ocupe toda a largura disponível */
+  max-width: 500px; /* Defina um máximo de largura para o nav se tornar mais equilibrado */
+}
+
+
+nav a {
+  display: flex;
+  justify-content: space-between; /* DISTRIBUI OS BOTÕES COM ESPAÇAMENTO ENTRE ELES */
+  padding: 10px 20px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 2px 3px 3px lightgrey;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #0073e6; /* Cor de destaque ao passar o mouse */
+}
+
+nav a:last-child {
+  background: dodgerblue;
+  color: white;
+}
+
+/* Hamburguer Menu */
+.hamburguer {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  background-image: url('images/5a163f4e-349f-4ab1-8c87-82ff467ff926.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding-top: 100px; /* Ajusta o espaçamento para o header fixo */
+}
+
+.hero-content {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Maior contraste */
+
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #ffcc00;
+  color: black;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #e6b800;
+}
+
+/* Projetos Section */
+.projetos-section {
+  background-color: #f0f0f0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.projects {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-color: white;
+  padding: 20px;
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  font-size: 1rem;
+}
+
+/* Disciplina Section */
+.disciplinas-section {
+  background-color: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.disciplinas-section ul {
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #2d3b4d;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+}
+
+/* MEDIA QUERIES PARA RESOLUÇÃO DE TELA */
+
+/* Tablets e dispositivos móveis */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Coloca o título e o menu em coluna */
+    align-items: center;
+  }
+
+  nav {
+    display: none; /* Menu escondido por padrão */
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* Garante que o menu ocupe toda a largura disponível */
+    align-items: center;
+  }
+
+  nav.show {
+    display: flex; /* Exibe o menu quando for ativado */
+  }
+
+  .hamburguer {
+    display: block; /* Exibe o ícone do menu hambúrguer */
+  }
+
+  .cta-button {
+    font-size: 1.3rem;
+    padding: 12px 25px;
+  }
+
+  .project-card {
+    width: 90%;
+  }
+
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
 }

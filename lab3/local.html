@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lisboa - Localização</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Seção de localização: flexbox */
+        section {
+            display: flex;
+            flex-direction: row; /* Texto ao lado do mapa */
+            gap: 20px;           /* Espaço entre texto e mapa */
+            padding: 20px;
+            align-items: flex-start;
+        }
+
+        section p {
+            flex: 1;             /* Texto ocupa metade do espaço */
+        }
+
+        section iframe {
+            flex: 1;             /* Mapa ocupa metade do espaço */
+            max-width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        /* Responsividade para telas pequenas */
+        @media (max-width: 768px) {
+            section {
+                flex-direction: column; /* Texto em cima, mapa embaixo */
+                gap: 15px;
+            }
+
+            section iframe {
+                height: 300px; /* Ajusta altura do mapa em mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A minha Cidade: Lisboa</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="local.html">Localização</a></li>
+                <li><a href="multimedia.html">Multimédia</a></li>
+                <li><a href="info.html">Informação</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div>
+                <h2>Localização</h2>
+                <p>
+                    Lisboa está situada no sudoeste da Europa, no continente europeu, sendo a capital de Portugal. 
+                    Localiza-se na região da Estremadura, junto à foz do rio Tejo, na costa atlântica da Península Ibérica. 
+                    A cidade encontra-se na margem norte do rio, próxima do Oceano Atlântico, o que lhe confere uma posição estratégica entre a Europa, África e América. 
+                    É uma das capitais mais ensolaradas da Europa e caracteriza-se pelo seu relevo ondulado, com colinas que oferecem vistas panorâmicas sobre o rio e o mar.
+                </p>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d70410.04827673698!2d-9.197554264747685!3d38.74732675085837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19331a61e4f33b%3A0x400ebbde49036d0!2sLisboa!5e0!3m2!1spt-PT!2spt!4v1758190179961!5m2!1spt-PT!2spt" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>DIW 2025</p>
+    </footer>
+</body>
+</html>

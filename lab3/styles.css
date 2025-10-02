@@ -1,0 +1,78 @@
+/* Base */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f6f8;        /* cor de fundo da página */
+  color: #222;
+}
+
+/* Cabeçalho e título */
+header { padding: 16px 20px; }
+h1 { margin: 0 0 12px 0; }
+
+/* Navegação (faixa verde) */
+nav {
+  background-color: #2a8a4b;        /* verde */
+  padding: 10px 20px;               /* espaço interno da barra */
+  display: flex;
+  justify-content: center;  /* Alinha os itens do menu lado a lado */
+  align-items: center;             /* Alinha verticalmente */
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 16px;               /* espaço entre links */
+  font-weight: 600;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Imagem de destaque (única) */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 16px auto;                 /* espaço fora da imagem (cima/baixo e centrada) */
+}
+
+/* Conteúdo principal */
+main {
+  max-width: 1000px;                 /* largura legível com laterais iguais */
+  margin: 0 auto;                    /* centra o main */
+  padding: 20px;                     /* resguardo interno do conteúdo */
+  background: #fff;                  /* fundo branco para contraste */
+  border-radius: 8px;
+}
+
+/* Rodapé (faixa preta) */
+footer {
+  background-color: #111;            /* preto */
+  color: #eee;
+  text-align: center;
+  padding: 16px 20px;                /* altura do footer através de padding */
+  margin-top: 20px;                  /* espaço entre o main/imagem e o footer */
+}
+
+/* Headings e parágrafos */
+h2, h3 { margin-top: 0; }
+p { margin: 0 0 12px; }
+ul { padding-left: 20px; }
+
+/* Responsividade do Menu */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;  /* Alinha os links verticalmente em telas pequenas */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+  }
+
+  nav a {
+    margin-right: 0;      /* Remove o espaço à direita */
+    margin-bottom: 12px;  /* Adiciona um espaço entre os links */
+  }
+
+  /* Ajusta o layout do conteúdo principal */
+  main {
+    padding: 16px;         /* Ajusta o espaçamento interno */
+  }
+}

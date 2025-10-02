@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lisboa - Informação</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #2a8a4b;
+      color: #fff;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-rows: auto;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section#informacao {
+      display: grid;
+      grid-template-columns: 2fr 1fr; /* Tabela maior, imagens menores */
+      grid-template-rows: auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .info {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .info th, .info td {
+      border: 1px solid #ccc;
+      padding: .6rem .8rem;
+      text-align: left;
+    }
+    .info th {
+      color: #1a4d8f;
+      background: #f1f6ff;
+    }
+    .info td { color: #333; }
+    .info .categoria {
+      font-weight: 700;
+      background: #eef2f5;
+      color: #0b3a66;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .info a { color: #0b7; text-decoration: none; }
+    .info a:hover { text-decoration: underline; }
+
+    .curiosidades {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .curiosidades ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .pixabay-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .pixabay-images img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .pixabay-images img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      section#informacao {
+        grid-template-columns: 1fr;
+      }
+      .curiosidades {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>A minha Cidade: Lisboa</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="local.html">Localização</a>
+      <a href="multimedia.html">Multimédia</a>
+      <a href="info.html">Informação</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="informacao">
+      <!-- Tabela -->
+      <table class="info" aria-label="Informações sobre Lisboa">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Tópico</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="categoria" rowspan="2" scope="rowgroup">Demografia</th>
+            <td>População (cidade)</td>
+            <td>≈ 506&nbsp;892 hab</td>
+          </tr>
+          <tr>
+            <td>Densidade populacional</td>
+            <td>≈ 5&nbsp;066 hab/km²</td>
+          </tr>
+          <tr>
+            <th class="categoria" rowspan="2" scope="rowgroup">Geografia</th>
+            <td>Área</td>
+            <td>≈ 100 km²</td>
+          </tr>
+          <tr>
+            <td>Região / País</td>
+            <td>Lisboa / Portugal</td>
+          </tr>
+          <tr>
+            <th class="categoria" scope="row">Website</th>
+            <td colspan="2">
+              <a href="https://www.cm-lisboa.pt" target="_blank" rel="noopener">www.cm-lisboa.pt</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Imagens do Pixabay -->
+      <div class="pixabay-images">
+        <img src="https://cdn.pixabay.com/photo/2016/11/19/15/03/lisbon-1836311_1280.jpg" alt="Vista de Lisboa">
+        <img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/lisbon-1078473_1280.jpg" alt="Elétrico em Lisboa">
+        <img src="https://cdn.pixabay.com/photo/2017/05/17/10/44/portugal-2310207_1280.jpg" alt="Ponte 25 de Abril">
+      </div>
+    </section>
+
+    <!-- Curiosidades -->
+    <section class="curiosidades">
+      <ul>
+        <li>Lisboa é conhecida como a “cidade das sete colinas”, oferecendo miradouros com vistas sobre o Tejo.</li>
+        <li>O elétrico 28 é um dos percursos mais famosos, atravessando bairros históricos como Alfama e Graça.</li>
+        <li>A Ponte 25 de Abril é frequentemente comparada à Golden Gate pela cor e estrutura.</li>
+        <li>Os Pastéis de Belém são confecionados segundo uma receita secreta desde o séc. XIX.</li>
+        <li>O Mosteiro dos Jerónimos e a Torre de Belém são classificados como Património Mundial da UNESCO.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>DIW 2025</p>
+  </footer>
+</body>
+</html>
