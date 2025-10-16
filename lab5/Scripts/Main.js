@@ -63,7 +63,7 @@ const textBio = document.querySelector("#textBio");
 
 document.querySelector('form').onsubmit = (e) => {
 
-   e.preventDefault(); 
+   e.preventDefault(); // para não recarregar a página
    textBio.textContent = "Olá, o " + inputNome.value + " tem " + inputIdade.value + "!";
 };
 
