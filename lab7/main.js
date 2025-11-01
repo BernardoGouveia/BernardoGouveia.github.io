@@ -357,7 +357,7 @@ function atualizarCesto() {
   // Section: Botões de ação
   const comprarBtn = document.createElement("button");
   comprarBtn.className = "btn btn-buy";
-  comprarBtn.textContent = "Finalizar Compra 🛒";
+  comprarBtn.textContent = "Comprar 🛒";
   comprarBtn.addEventListener("click", () => {
     // Exibe a seção de checkout diretamente na mesma página
     mostrarCheckout(cesto, total);
