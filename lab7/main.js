@@ -170,8 +170,6 @@ function criarProduto(produto) {
 function obterCesto() {
   return JSON.parse(localStorage.getItem("cesto")) || [];
 }
-
-// Section: LocalStorage helpers
 function guardarCesto(cesto) {
   localStorage.setItem("cesto", JSON.stringify(cesto));
 }
@@ -210,7 +208,6 @@ function atualizarCesto() {
     return;
   }
 
-  // Section: Renderizar cesto
   const containerItems = document.createElement("div");
   containerItems.className = "cesto-items";
   let total = 0;
@@ -359,8 +356,8 @@ function atualizarCesto() {
   comprarBtn.className = "btn btn-buy";
   comprarBtn.textContent = "Comprar 🛒";
   comprarBtn.addEventListener("click", () => {
-    // Exibe a seção de checkout diretamente na mesma página
-    mostrarCheckout(cesto, total);
+    // Envia pedido ao endpoint /buy e mostra referência e total retornado
+    finalizarCompra(cesto, total);
   });
 
   const botoesDiv = document.createElement("div");
@@ -446,4 +443,68 @@ function mostrarCheckout(cesto, total) {
   } else {
     checkoutSection.appendChild(totalCheckout);
   }
+}
+
+// Section: Finalizar compra (POST /buy)
+function finalizarCompra(cesto, total) {
+  // calcular descontos
+  const descontoAplicado = JSON.parse(localStorage.getItem("descontoEstudante") || "false");
+  const savedCoupon = (localStorage.getItem("couponCode") || "").toLowerCase();
+  const couponValid = savedCoupon === "black-friday";
+  const afterStudent = descontoAplicado ? total * 0.75 : total;
+  const finalTotal = couponValid ? afterStudent * 0.9 : afterStudent;
+
+  // gerar referência cliente (YYMMDD-XXXX) e preparar payload
+  const clientReference = generatePaymentReference();
+  const payload = {
+    reference: clientReference,
+    items: cesto.map(p => ({ id: p.id, quantity: p.quantity || 1 })),
+    student: !!descontoAplicado,
+    coupon: couponValid ? savedCoupon : null,
+    total: Number(finalTotal.toFixed(2))
+  };
+
+  // mostrar checkout imediatamente
+  mostrarCheckout(cesto, total);
+
+  // chamar endpoint /buy
+  fetch("https://deisishop.pythonanywhere.com/buy", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(response => response.json())
+  .then(data => {
+    const checkoutSection = document.getElementById("checkout");
+
+    // preferir a referência gerada no cliente (padronizada) — servidor pode devolver outra
+    const reference = clientReference;
+    const returnedTotal = (data.total || data.amount || data.paid || payload.total);
+
+    const refEl = document.createElement("p");
+    refEl.id = "payment-reference";
+    refEl.innerHTML = `<strong>Referência para pagamento: ${reference}</strong>`;
+
+    const totalEl = document.createElement("p");
+    totalEl.id = "payment-total";
+    totalEl.innerHTML = `<strong>Total cobrado: ${Number(returnedTotal).toFixed(2)} €</strong>`;
+
+    checkoutSection.appendChild(refEl);
+    checkoutSection.appendChild(totalEl);
+  })
+  .catch(err => {
+    console.error('Erro ao contactar /buy:', err);
+    alert('Ocorreu um erro ao finalizar a compra. Tente novamente.');
+  });
+}
+
+// Section: Payment reference generator
+function generatePaymentReference() {
+  // Prefix fixed as requested: 251124 (YYMMDD)
+  const dateKey = '251124';
+  const storageKey = `paymentSeq_${dateKey}`;
+  let seq = parseInt(localStorage.getItem(storageKey) || '0', 10) + 1;
+  localStorage.setItem(storageKey, String(seq));
+  const seqStr = String(seq).padStart(4, '0');
+  return `${dateKey}-${seqStr}`;
 }
