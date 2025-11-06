@@ -76,3 +76,9 @@ ul { padding-left: 20px; }
     padding: 16px;         /* Ajusta o espaçamento interno */
   }
 }
+/* Toggle: esconder imagens quando ativado */
+.hide-images article img,
+.hide-images .checkout-img,
+.hide-images .cesto-article img {
+  display: none !important;
+}
